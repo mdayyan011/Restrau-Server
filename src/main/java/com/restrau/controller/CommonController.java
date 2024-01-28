@@ -28,6 +28,7 @@ public class CommonController {
 	@GetMapping("/common")
 	List<Common> all()
 	{
+		System.out.println("Request recived for all");
 		return commonService.findAll();
 	}
 	
@@ -35,6 +36,7 @@ public class CommonController {
 	@GetMapping("/common/{_dishID}")
 	Optional<Common> menuById(@PathVariable int _dishID)
 	{
+		System.out.println("Request recived for menuById");
 		return commonService.getByDish(_dishID);	
 	}
 	

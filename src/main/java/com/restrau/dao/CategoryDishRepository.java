@@ -27,7 +27,7 @@ public class CategoryDishRepository {
 
 			// get all category by menu Id 
 			public List<CategoryDish> getAllCatByMenuId(int categoryId){
-				String sql="SELECT * FROM categorydish WHERE CategoryID=?";
+				String sql="SELECT * FROM categorydish WHERE \"CategoryID\"=?";
 				return jdbcTemplate.query(sql, rowMapper , categoryId);
 			}
 }

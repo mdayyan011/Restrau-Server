@@ -28,6 +28,7 @@ public class CategoryDishController {
 	// for fetching all dishes by category id
 		@GetMapping("/dishesbycatid/{catId}")
 		public List<Dish> getAllDish(@PathVariable int catId) throws ResourceNotFound, NullException {
+			System.out.println("Request recived for getAllDish");
 			return catDishService.getAllDishByCatId(catId);
 		}
 }

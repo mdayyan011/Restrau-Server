@@ -27,7 +27,7 @@ public class MenuCategoryController {
 		// for getting categories by menu id
 		@GetMapping("/categoriesbymenuid/{menuId}")
 		public List<Category> getAllCatByMenuId(@PathVariable int menuId){
-			
+			System.out.println("Request recived for getAllCatByMenuId");
 			return menuCategoryService.getAllCatByMenuId(menuId);
 			
 		}

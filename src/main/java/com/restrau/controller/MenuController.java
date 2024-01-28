@@ -29,24 +29,28 @@ public class MenuController {
 	// for fetching all menu available
 	@GetMapping("/menuitems")
 	public List<Menu> menus() throws ResourceNotFound, NullException{
+		System.out.println("Request recived for menus");
 		return menuService.findAllMenus();
 	}
 	
 	// for fetching a particular menu detail by Menu ID
 	@GetMapping("/menuitems/{menuId}")
 	public Menu getMenuByMenuId(@PathVariable int menuId) throws ResourceNotFound, NullException{
+		System.out.println("Request recived for getMenuByMenuId");
 		return menuService.getByMenuId(menuId);
 	}
 	
 	// for creating a new menu
 	@PostMapping("/menuitem")
 	public int addMenu(@RequestBody Menu newmenu) throws ResourceNotFound, NullException {
+		System.out.println("Request recived for addMenu");
 		return menuService.createMenu(newmenu);
 	}
 	
 	// for updating a particular menu by Menu ID
 	@PutMapping("/menuitems/{menuId}")
 	public int updateMenu(@RequestBody Menu updatedMenu, @PathVariable int menuId) throws ResourceNotFound, NullException {
+		System.out.println("Request recived for updateMenu");
 		return menuService.updateMenu(updatedMenu,menuId);
 	}
 }

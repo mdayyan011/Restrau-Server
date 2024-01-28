@@ -31,12 +31,14 @@ public class CategoryController {
 	// for fetching all categories available
 	@GetMapping("/categoryitems")
 	public List<Category> Categories() throws ResourceNotFound, NullException {
+		System.out.println("Request recived for /categoryitems");
 		return categoryService.findAllCategories();
 	}
 	
 	// for fetching a particular category detail by Category ID
 	@GetMapping("/categoryitems/{id}")
 	public Category findByCategoryId(@PathVariable int id) throws ResourceNotFound, NullException {
+		System.out.println("Request recived for findByCategoryId");
 		return categoryService.getCategoryById(id);
 	}
 	
@@ -44,6 +46,7 @@ public class CategoryController {
 	// for creating a new category
 	@PostMapping ("/categoryitems")
 	public String createCategory (@RequestBody MenuCategoryCommon newCategory) throws ResourceNotFound, NullException {
+		System.out.println("Request recived for createCategory");
 		return categoryService.createCategory(newCategory);
 	}
 	
@@ -51,6 +54,7 @@ public class CategoryController {
 	// for updating a particular category by Category ID
 	@PutMapping(path="/categoryitems/{id}")
 	public String updateCategory(@RequestBody Category category, @PathVariable int id) throws ResourceNotFound, NullException {
+		System.out.println("Request recived for updateCategory");
 		return categoryService.updateCategory(category, id);
 	}
 }

@@ -30,7 +30,7 @@ public class UserRepository {
 		// fetching user Details from user_master table
 		public User getUserCredentials(User user) {  
 			try {
-		String sql ="select user_password from user where user_email=? and is_admin=1"; 
+		String sql ="select user_password from \"user\" where user_email=? and is_admin='1'"; 
 		return jdbcTemplate.queryForObject(sql, rowMapper,user.getUser_email());
 			}
 			catch(Exception e ) {

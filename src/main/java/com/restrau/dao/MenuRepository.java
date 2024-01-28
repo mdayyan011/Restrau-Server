@@ -36,14 +36,17 @@ public class MenuRepository {
 	
 	// fetching details of a particular menu by menu Id 
 	public Menu getMenuByMenuId(int menuId){
-		String sql = "SELECT * FROM Menu WHERE MenuID= ? ";
+		String sql = "SELECT * FROM Menu WHERE \"MenuID\"= ? ";
 		return jdbcTemplate.queryForObject(sql , rowMapper , menuId );
 	}
 	
 	// inserting a new menu to menu_master table using parametrized query 
 	public int saveMenu(Menu newMenu) {
-		String sql = "insert into Menu values(?,?,?,?)";
-		return jdbcTemplate.update(sql,newMenu.get_menuId(),newMenu.get_menuName(),newMenu.get_menuDescription(),newMenu.get_menuImage());
+		String sql = "insert into Menu(\"MenuName\",\"MenuDescription\",\"MenuImage\") values(?,?,?)";
+		System.out.println("newMenu.get_menuName( "+newMenu.get_menuName());
+		System.out.println("newMenu.get_menuId( "+newMenu.get_menuId());
+//		return jdbcTemplate.update(sql,newMenu.get_menuId(),newMenu.get_menuName(),newMenu.get_menuDescription(),newMenu.get_menuImage());
+		return jdbcTemplate.update(sql,newMenu.get_menuName(),newMenu.get_menuDescription(),newMenu.get_menuImage());
 	}
 
 	// updating a menu based on menu Id

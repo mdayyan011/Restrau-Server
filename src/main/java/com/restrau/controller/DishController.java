@@ -32,6 +32,7 @@ public class DishController {
 	@GetMapping("/dishitems")
 	public List<Dish> menus()
 	{
+		System.out.println("Request recived for menus");
 		return dishService.getAllDishes();
 	}
 	
@@ -39,6 +40,7 @@ public class DishController {
 	@GetMapping("/dishitems/{dishID}")
 	public Dish getDishByDishID(@PathVariable int dishID)
 	{
+		System.out.println("Request recived for getDishByDishID");
 		return dishService.getDishByDishID(dishID);	
 	}
 	
@@ -46,6 +48,7 @@ public class DishController {
 	@PostMapping("/dishitem")
 	public int addDish(@RequestBody CategoryDishCommon newDish)
 	{
+		System.out.println("Request recived for addDish");
 		return dishService.createDish(newDish);
 	}
 	
@@ -53,6 +56,7 @@ public class DishController {
 	@PutMapping("/dishitems/{dishId}")
 	public int updateDish(@RequestBody Dish dish,@PathVariable int dishId)
 	{
+		System.out.println("Request recived for updateDish");
 		return dishService.updateDish(dish,dishId);
 		
 	} 
@@ -60,6 +64,7 @@ public class DishController {
 	// for soft deleting the dish
 	@DeleteMapping("/deletedish/{dishId}")
 	public int deleteDish(@PathVariable int dishId) {
+		System.out.println("Request recived for deleteDish");
 		return dishService.deleteDish(dishId);
 	}
 }
