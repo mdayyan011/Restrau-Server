@@ -15,7 +15,7 @@ import com.restrau.model.MenuCategory;
 import com.restrau.service.IMenuCategoryService;
 
 //declaring it as rest controller
-@CrossOrigin(origins="http://localhost:4200","https://client-app-6b15.onrender.com/")
+@CrossOrigin(origins="*")
 @RequestMapping("/api")
 @RestController
 public class MenuCategoryController {
