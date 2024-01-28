@@ -13,7 +13,7 @@ import com.restrau.model.User;
 import com.restrau.service.IUserService;
 
 //declaring it as rest controller
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200","https://client-app-6b15.onrender.com/")
 @RequestMapping("/api")
 @RestController
 public class UserController {

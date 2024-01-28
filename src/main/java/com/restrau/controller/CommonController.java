@@ -15,7 +15,7 @@ import com.restrau.service.*;
 
 //declaring as a rest controller
 @RequestMapping("/api")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200","https://client-app-6b15.onrender.com/")
 @RestController
 public class CommonController {
 

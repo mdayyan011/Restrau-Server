@@ -19,7 +19,8 @@ import com.restrau.service.IMenuService;
 //declaring it as rest controller
 @RequestMapping("/api")
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200","https://client-app-6b15.onrender.com/")
+
 public class MenuController {
 
 	// autowiring with the service

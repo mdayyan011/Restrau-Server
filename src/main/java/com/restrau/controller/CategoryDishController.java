@@ -17,7 +17,7 @@ import com.restrau.service.ICategoryDishService;
 
 //declaring as a rest controller
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200","https://client-app-6b15.onrender.com/")
 @RequestMapping("/api")
 @RestController
 public class CategoryDishController {
