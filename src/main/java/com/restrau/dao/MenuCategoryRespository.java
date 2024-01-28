@@ -29,7 +29,7 @@ public class MenuCategoryRespository {
 
 		// fetching category id by menu id
 		public List<MenuCategory> getAllCatByMenuId(int menuId){
-			String sql="SELECT * FROM menucategory WHERE MenuID=?";
+			String sql="SELECT * FROM menucategory WHERE \"MenuID\"=?";
 			return jdbcTemplate.query(sql, rowMapper , menuId);
 		}
 

@@ -55,14 +55,18 @@ public class CategoryRepository {
 		String lastIdSql = "SELECT LAST_INSERT_ID()";
 		Category categoryRes = (Category) jdbcTemplate.queryForObject(lastIdSql,rowMapper1);
 		int categoryId = categoryRes.get_categoryId();
-		String insertMenuCatSql = "INSERT INTO menucategory VALUES (?,?,?)";
+		String insertMenuCatSql = "INSERT INTO \"menucategory\" VALUES (?,?,?)";
 		int menuCategoryInsertionStatus = jdbcTemplate.update(insertMenuCatSql,category.get_menuId(),categoryId,0);
 		 
 		return menuCategoryInsertionStatus;
 	}
 	
 	// updating a category based on category Id
-	public int updateCategory(Category pm , int id) { 
-		return jdbcTemplate.update("update category set categoryNAME='"+ pm.get_categoryName() + "', categoryDESCRIPTION='" + pm.get_categoryDescription() + "', categoryIMAGE='" + pm.get_categoryImage() + "' where categoryID='" +id +"';");
+	public int updateCategory(Category pm, int id) {
+	    return jdbcTemplate.update("UPDATE Category SET \"categoryNAME\"='" + pm.get_categoryName() +
+	            "', \"categoryDESCRIPTION\"='" + pm.get_categoryDescription() +
+	            "', \"categoryIMAGE\"='" + pm.get_categoryImage() +
+	            "' WHERE \"categoryID\"='" + id + "'");
 	}
+
 }

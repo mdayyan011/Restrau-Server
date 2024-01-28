@@ -38,12 +38,12 @@ public class DishRepository {
 
 	// fetching all dishes from dish_master table
 	public List<Dish> getAllDishes() {
-		return jdbcTemplate.query("select * from Dish WHERE isDelete=0", rowMapper);
+		return jdbcTemplate.query("select * from Dish WHERE \"isDelete\"=0", rowMapper);
 	}
 
 	// fetching dish detail from dish_master table
 	public Dish getDishByDishID(int dishId) {
-		String sql = "select * from Dish where DishID = ? AND isDelete=0";
+		String sql = "select * from Dish where \"DishID\" = ? AND \"isDelete\"=0";
 		return jdbcTemplate.queryForObject(sql, rowMapper , dishId);
 	}
 
@@ -61,14 +61,15 @@ public class DishRepository {
 
 	// updating a new dish based on dish Id
 	public int updateDish(Dish updatedDish, int dishID) {
-		String sql = "update Dish set DishName= ? , DishDescription= ? ,DishPrice=?,DishImage= ?,Nature= ? where DishID=? AND isDelete=0"; 
-		return jdbcTemplate.update(sql,updatedDish.get_dishName(),updatedDish.get_dishDescription(),updatedDish.get_price(),updatedDish.get_dishImage(),updatedDish.get_dishName(),dishID);
+	    String sql = "UPDATE Dish SET \"DishName\" = ?, \"DishDescription\" = ?, \"DishPrice\" = ?, \"DishImage\" = ?, \"Nature\" = ? WHERE \"DishID\" = ? AND \"isDelete\" = 0";
+	    return jdbcTemplate.update(sql, updatedDish.get_dishName(), updatedDish.get_dishDescription(), updatedDish.get_price(), updatedDish.get_dishImage(), updatedDish.get_dishName(), dishID);
 	}
+
 
 	// performing soft delete
 	public int deleteDish(int dishId) {
 		// TODO Auto-generated method stub
-		String sql = "update dish set isDelete='"+1+"'where DishID='"+dishId+"';";
+		String sql = "update dish set \"isDelete\"='"+1+"'where \"DishID\"='"+dishId+"';";
 
 		return jdbcTemplate.update(sql);
 	}

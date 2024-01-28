@@ -30,29 +30,27 @@ public class CommonRepository {
 	
 	 
 
-	// list of Common
-	public List<Common> getAll() {
-		
-		return jdbcTemplate.query("SELECT m.MenuName, c.CategoryName, d.DishName,d.DishImage,d.DishPrice ,d.Nature,d.DishDescription\r\n"
-		+ "FROM Menu m\r\n"
-		+ "JOIN MenuCategory mc ON m.MenuID = mc.MenuID\r\n"
-		+ "JOIN Category c ON mc.CategoryID = c.CategoryID\r\n"
-		+ "JOIN CategoryDish cd ON c.CategoryID = cd.CategoryID\r\n"
-		+ "JOIN Dish d ON cd.DishID = d.DishID\r\n"
-		+ "GROUP BY m.MenuName, c.CategoryName, d.DishName,d.DishImage,d.DishPrice ,d.Nature,d.DishDescription\r\n"
-		+ "ORDER BY m.MenuName, c.CategoryName,d.DishName;", rowMapper);
-}
-		
+    // list of Common
+    public List<Common> getAll() {
+        return jdbcTemplate.query("SELECT m.\"MenuName\", c.\"CategoryName\", d.\"DishName\", d.\"DishImage\", d.\"DishPrice\", d.\"Nature\", d.\"DishDescription\"\r\n"
+                + "FROM Menu m\r\n"
+                + "JOIN MenuCategory mc ON m.\"MenuID\" = mc.\"MenuID\"\r\n"
+                + "JOIN Category c ON mc.\"CategoryID\" = c.\"CategoryID\"\r\n"
+                + "JOIN CategoryDish cd ON c.\"CategoryID\" = cd.\"CategoryID\"\r\n"
+                + "JOIN Dish d ON cd.\"DishID\" = d.\"DishID\"\r\n"
+                + "GROUP BY m.\"MenuName\", c.\"CategoryName\", d.\"DishName\", d.\"DishImage\", d.\"DishPrice\", d.\"Nature\", d.\"DishDescription\"\r\n"
+                + "ORDER BY m.\"MenuName\", c.\"CategoryName\", d.\"DishName\";", rowMapper);
+    }
 
-	public Optional<Common> findbyId(int _dishID) {
-		String sql = "SELECT m.MenuName, c.CategoryName, d.DishName, d.DishImage,d.DishPrice ,d.Nature,d.DishDescription " +
+    public Optional<Common> findbyId(int _dishID) {
+        String sql = "SELECT m.\"MenuName\", c.\"CategoryName\", d.\"DishName\", d.\"DishImage\", d.\"DishPrice\", d.\"Nature\", d.\"DishDescription\" " +
                 "FROM Menu m " +
-                "JOIN MenuCategory mc ON m.MenuID = mc.MenuID " +
-                "JOIN Category c ON mc.CategoryID = c.CategoryID " +
-                "JOIN CategoryDish cd ON c.CategoryID = cd.CategoryID " +
-                "JOIN Dish d ON cd.DishID = d.DishID " +
-                "GROUP BY m.MenuName, c.CategoryName, d.DishName, d.DishImage,d.DishPrice ,d.Nature,d.DishDescription";
+                "JOIN MenuCategory mc ON m.\"MenuID\" = mc.\"MenuID\" " +
+                "JOIN Category c ON mc.\"CategoryID\" = c.\"CategoryID\" " +
+                "JOIN CategoryDish cd ON c.\"CategoryID\" = cd.\"CategoryID\" " +
+                "JOIN Dish d ON cd.\"DishID\" = d.\"DishID\" " +
+                "GROUP BY m.\"MenuName\", c.\"CategoryName\", d.\"DishName\", d.\"DishImage\", d.\"DishPrice\", d.\"Nature\", d.\"DishDescription\"";
 
-		return jdbcTemplate.query(sql, rowMapper).stream().findFirst();
-	}
+        return jdbcTemplate.query(sql, rowMapper).stream().findFirst();
+    }
 }

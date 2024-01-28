@@ -47,10 +47,10 @@ public class MenuRepository {
 	}
 
 	// updating a menu based on menu Id
-	public int updatMenu(Menu menu, int menuId) { 
-		String sql = "update Menu set MenuName= ? ,MenuDescription=? ,MenuImage=? where MenuID=?";
-		return jdbcTemplate.update(sql,menu.get_menuName(),menu.get_menuDescription(),menu.get_menuImage(),menuId);
+	public int updatMenu(Menu menu, int menuId) {
+	    String sql = "UPDATE Menu SET \"MenuName\" = ?, \"MenuDescription\" = ?, \"MenuImage\" = ? WHERE \"MenuID\" = ?";
+	    return jdbcTemplate.update(sql, menu.get_menuName(), menu.get_menuDescription(), menu.get_menuImage(), menuId);
 	}
-	
+
 	
 }
