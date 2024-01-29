@@ -23,6 +23,7 @@ public class UserController {
 	IUserService userService;
 	
 	// authenticating
+	@CrossOrigin(origins="*")
 	@PostMapping("/authUser")
 	public boolean checkUser(@RequestBody User user) throws ResourceNotFound, NullException { 
 		System.out.println("Request recived for checkUser");
