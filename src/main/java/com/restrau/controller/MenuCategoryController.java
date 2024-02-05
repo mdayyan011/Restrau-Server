@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restrau.model.Category;
@@ -15,7 +16,7 @@ import com.restrau.model.MenuCategory;
 import com.restrau.service.IMenuCategoryService;
 
 //declaring it as rest controller
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
 public class MenuCategoryController {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restrau.model.CategoryDishCommon;
@@ -19,7 +20,7 @@ import com.restrau.model.Dish;
 import com.restrau.service.IDishService;
 
 // declaring it as rest controller
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
 public class DishController {

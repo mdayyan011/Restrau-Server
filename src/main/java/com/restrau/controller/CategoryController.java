@@ -1,5 +1,6 @@
 package com.restrau.controller;
 
+import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List; 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,10 @@ import com.restrau.model.Category;
 import com.restrau.model.MenuCategoryCommon;
 import com.restrau.service.ICategoryService;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+
 // declaring as a rest controller
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
 public class CategoryController {

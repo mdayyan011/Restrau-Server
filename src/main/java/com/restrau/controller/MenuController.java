@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restrau.exception.NullException;
@@ -17,9 +18,9 @@ import com.restrau.exception.ResourceNotFound;
 import com.restrau.model.Menu;
 import com.restrau.service.IMenuService;
 //declaring it as rest controller
+@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
-@CrossOrigin(origins="*")
 
 public class MenuController {
 

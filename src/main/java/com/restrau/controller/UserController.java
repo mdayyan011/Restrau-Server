@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restrau.exception.NullException;
@@ -13,7 +14,7 @@ import com.restrau.model.User;
 import com.restrau.service.IUserService;
 
 //declaring it as rest controller
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="http://localhost:9090",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
 public class UserController {
@@ -22,8 +23,7 @@ public class UserController {
 	@Autowired
 	IUserService userService;
 	
-	// authenticating
-	@CrossOrigin(origins="*")
+	// authenticating 
 	@PostMapping("/authUser")
 	public boolean checkUser(@RequestBody User user) throws ResourceNotFound, NullException { 
 		System.out.println("Request recived for checkUser");
