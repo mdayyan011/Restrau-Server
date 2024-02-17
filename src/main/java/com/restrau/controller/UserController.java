@@ -15,7 +15,9 @@ import com.restrau.service.IUserService;
 
 //declaring it as rest controller
 //@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
-@CrossOrigin(origins = "*", allowedHeaders = { "Authorization", "Content-Type" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+//@CrossOrigin(origins = "*", allowedHeaders = { "Authorization", "Content-Type" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+@CrossOrigin(origins = "https://restrau-delite.onrender.com", allowedHeaders = { "Authorization", "Content-Type" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+
 @RequestMapping("/api")
 @RestController
 public class UserController {
