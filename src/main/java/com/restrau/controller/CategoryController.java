@@ -22,7 +22,7 @@ import com.restrau.service.ICategoryService;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 // declaring as a rest controller
-//@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
+@CrossOrigin(origins="*",allowedHeaders = { "GET", "POST", "PUT", "DELETE" }, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE })
 @RequestMapping("/api")
 @RestController
 public class CategoryController {
